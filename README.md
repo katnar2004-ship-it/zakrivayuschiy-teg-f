@@ -1,1 +1,1 @@
-https://katnar2004-ship-it.github.io/zakrivayuschiy-teg-f/
+https://github.com/katnar2004-ship-it/zakrivayuschiy-teg-f
