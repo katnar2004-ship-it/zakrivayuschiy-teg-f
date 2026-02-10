@@ -103,7 +103,7 @@
 
 .content-section-title {
   font-family: var(--main-font-family);
-  font-weight: var(--accent-text-weight);
+  font-variation-settings: var(--accent-text-weight);
   font-size: 18px;
   vertical-align: middle;
   padding: 4px 10px;
@@ -118,7 +118,7 @@
 
 .content-section-text-item {
   font-family: var(--main-font-family);
-  font-weight: var(--main-text-weight);
+  font-variation-settings: var(--main-text-weight);
   font-style: normal;
   font-size: 18px;
   line-height: 21px;
@@ -210,7 +210,6 @@
 }
 
 .card__icon-button {
-  border: none;
   width: auto;
   height: 38px;
   padding: 0px;
