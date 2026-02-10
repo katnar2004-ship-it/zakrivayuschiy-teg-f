@@ -1,1 +1,16 @@
-/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --main-font-family: 'Inter', sans-serif;
+  --accent-font-family: 'PressStart2P', sans-serif;
+  --main-text-weight: 410;
+  --accent-text-weight: 715;
+  --gradient-horizontal: repeating-linear-gradient(to right, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px);
+  --gradient-vertical: repeating-linear-gradient(to bottom, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px);
+  --gradient-smooth: linear-gradient(to bottom, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+  --page-background:
+    var(--gradient-horizontal),
+    var(--gradient-vertical),
+    var(--gradient-smooth);
+  --main-block: clamp(375px, 50%, 700px);
+  --heart-accent-color: #FF0000;
+  --heart-color: black;
+}
