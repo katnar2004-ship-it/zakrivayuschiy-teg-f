@@ -13,7 +13,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font-family);
+  font-family: var(--main-font-family), sans-serif;
   font-variation-settings: 'wght' var(--main-text-weight);
   background-image: var(--page-background);
   background-attachment: fixed;
@@ -35,50 +35,41 @@
 
 .logo-group {
   width: var(--main-block);
-  padding-top: 130px;
-  padding-left: 122px;
-  padding-bottom: 130px;
-  padding-right: 122px;
+  padding-top: clamp(
+    120px,
+    calc(120px + (130 - 120) * ((100vw - 375px) / (1440 - 375))),
+    130px
+  );
+  padding-bottom: clamp(
+    120px,
+    calc(120px + (130 - 120) * ((100vw - 375px) / (1440 - 375))),
+    130px
+  );
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(0, 0, 0, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  background-color: rgba(255, 255, 255, 1);
-  border: 2px solid rgba(0, 0, 0, 1);
-
-  @media (width <= 375px) {
-    padding-top: 120px;
-    padding-left: 16px;
-    padding-bottom: 120px;
-    padding-right: 16px;
-  }
 }
 
 .header-title {
-  font-family: var(--accent-font-family);
-  font-size: 65px;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 1);
-
-  @media (width <= 375px) {
-    font-size: 49px;
-  }
 }
 
 .header-text {
-  font-family: var(--accent-font-family);
-  font-size: 23px;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 1);
-
-  @media (width <= 375px) {
-    font-size: 14px;
-  }
 }
 
 .content {
@@ -102,11 +93,16 @@
 }
 
 .content-section-title {
-  font-family: var(--main-font-family);
+  font-family: var(--main-font-family), sans-serif;
   font-variation-settings: 'wght' var(--accent-text-weight);
   font-size: 18px;
   vertical-align: middle;
-  padding: 4px 10px;
+  padding-block: 6px;
+  padding-inline: 10px;
+
+  @media (width <= 375px) {
+    padding-block: 5px;
+  }
 }
 
 .content-section-text {
@@ -117,7 +113,7 @@
 }
 
 .content-section-text-item {
-  font-family: var(--main-font-family);
+  font-family: var(--main-font-family), sans-serif;
   font-variation-settings: 'wght' var(--main-text-weight);
   font-style: normal;
   font-size: 18px;
@@ -126,21 +122,17 @@
 
 .decorated-zone {
   position: relative;
-  width: 696px;
-  height: 698px;
-
-  @media (width <= 375px) {
-    width: 371px;
-    height: 375px;
-  }
+  width: 100%;
+  max-height: 698px;
+  margin: 0px;
 }
 
-.decorated-zone::after {
-  content: "</HTML>";
+.label {
   position: absolute;
+  z-index: 1;
   top: 25px;
   right: 25px;
-  font-family: var(--accent-font-family);
+  font-family: var(--accent-font-family), sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -160,7 +152,7 @@
 
 .content-section-img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1/1;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -245,12 +237,16 @@
 }
 
 .button__text {
-  font-family: var(--accent-font-family);
+  font-family: var(--accent-font-family), sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
   line-height: 90%;
   text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
 
 .content-button {
@@ -262,7 +258,7 @@
   @media (width <= 375px) {
     margin-left: 34px;
     margin-right: 34px;
-}
+  }
 }
 
 .content-button:focus {
@@ -280,7 +276,7 @@
   background-color: rgba(255, 255, 255, 1);
   border: 2px solid rgba(0, 0, 0, 1);
   padding: 30px;
-  width: 353px;
+  max-width: 353px;
 
   @media (width <= 375px) {
     padding: 30px 40px;
@@ -314,7 +310,7 @@
 }
 
 .dialog-title {
-  font-family: var(--accent-font-family);
+  font-family: var(--accent-font-family), sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -330,7 +326,7 @@
 
   @media (width <= 375px) {
     padding: 7px 113px;
-    width: 255px;
+    width: 261px;
   }
 }
 
@@ -416,22 +412,22 @@ button .svg-hover {
   transition: fill 0.3s linear 0.03s;;
 }
 
-.like-icon:hover .core {
+.card__icon-button:hover .core {
   fill: var(--heart-color);
   transition: fill 0.3s linear;
 }
 
-.like-icon:hover .main-body {
+.card__icon-button:hover .main-body {
   fill: var(--heart-color);
   transition: fill 0.3s linear 0.05s;
 }
 
-.like-icon:active .core {
+.card__icon-button:active .core {
   fill: var(--heart-accent-color);
   transition: fill 0.3s linear;
 }
 
-.like-icon:active .main-body {
+.card__icon-button:active .main-body {
   fill: var(--heart-accent-color);
   transition: fill 0.3s linear 0.05s;
 }

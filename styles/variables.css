@@ -10,7 +10,11 @@
     var(--gradient-horizontal),
     var(--gradient-vertical),
     var(--gradient-smooth);
-  --main-block: clamp(375px, 50%, 700px);
+  --main-block: clamp(
+    375px,
+    calc(375px + (700 - 375) * ((100vw - 375px) / (1440 - 375))),
+    700px
+  );
   --heart-accent-color: #FF0000;
   --heart-color: black;
 }
